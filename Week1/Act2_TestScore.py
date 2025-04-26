@@ -11,6 +11,14 @@ scores = np.array([
     [75, 80, 70]
 ])
 
-# Calculate and print the avg score of each student
+row_avg = np.mean(scores, axis=1)
+print(f"Student avg of each student {row_avg}")
 
-print(f"The avg score is: ")
+col_avg = np.mean(scores, axis=0)
+print(f"Avg of subjects: {col_avg}")
+
+highest_index = np.argmax(row_avg)
+print(f"Student with highest score is student {highest_index}")
+
+new_score = scores[:, 2] + 5
+print(f"New score of the 3rd subject {new_score}")
