@@ -9,5 +9,6 @@ class factorial:  # Define a class named factorial
 
 num = int(input("Enter a number: "))  # Get user input
 # Call the factorial class method to calculate factorial
-ans = factorial.number(num)
+obj = factorial()  # Create an instance of the factorial class
+ans = obj.number(num)  # Call the number method of the factorial class
 print(f"Factorial of {num} is {ans}")
