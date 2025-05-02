@@ -1,0 +1,34 @@
+class Factorial:
+
+    def factorial(num):  # Factorial method now works with self.num1
+        result = 1  # Initialized before the loop to store the product.
+        for i in range(1, num + 1):
+            result *= i
+        return result
+
+    def check_Prime(num):  # Prime check method added
+        if num < 2:  # 0 and 1 are not prime numbers
+            return False
+        # Check up to the square root of num1 and int to make it not show decimal values
+        for i in range(2, int(num ** 0.5) + 1):
+            # Check if num1 is divisible by i
+            if num % i == 0:
+                return False
+        return True
+
+    def display(num):  # Display method corrected
+        print("Factorial of", num, "is", Factorial.factorial())
+        if Factorial.check_Prime():
+            print(f"{num} is a prime number.")
+        else:
+            print(f"{num} is not a prime number.")
+
+
+number1 = 10  # Example number to test the methods
+# Call the factorial method to calculate the factorial of number1
+factorial_result = Factorial.factorial(number1)
+# Call the check_Prime method to check if number1 is prime
+is_prime_result = Factorial.check_Prime(number1)
+# Print the results
+print(f"Factorial of {number1} is {factorial_result}")
+print(f"{number1} is {'a prime number' if is_prime_result else 'not a prime number'}")
