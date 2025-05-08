@@ -17,7 +17,7 @@ class SimpleDataAnalyzer:
         except FileNotFoundError:                                       # noqa #error handling incase there is no file with described file name
             print(f"Error: The file '{self.csv_path}' was not found.")
             sys.exit(1)                                                 # noqa #ends the program when error occurs
-        except Exception as e:                                          # noqa #error handling if file extension is different
+        except Exception as e:                                          # noqa #error handling for other error that will occur
             print(f"An error occurred while loading the data: {e}")
             sys.exit(1)                                                 # noqa #ends the program when error occurs
 
