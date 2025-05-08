@@ -71,7 +71,7 @@ class SimpleDataAnalyzer:
 
 
 def main():
-    analyzer = SimpleDataAnalyzer()
+    analyzer = SimpleDataAnalyzer()                                                               # noqa #creates an instance
     analyzer.load_data()
     analyzer.show_average_per_year()
     analyzer.row_with_highest_value()
