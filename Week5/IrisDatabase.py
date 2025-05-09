@@ -6,9 +6,9 @@ class FlowerNames:
         self.url = url
 
     def GetFlowerNames(self):
-        response = requests.get(self.url)
-        data = response.text
-        flower_names = self.ExtractFlowerNames(data)
+        response = requests.get(self.url)  # noqa # .get is used to get the data from the url
+        data = response.text              # noqa #.text is used to get the text content of the response
+        flower_names = self.ExtractFlowerNames(data)  # noqa #ExtractFlowerNames is a method that extracts the flower names from the data
         return flower_names
 
     def ExtractFlowerNames(self, data):
