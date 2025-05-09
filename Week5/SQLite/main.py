@@ -12,7 +12,7 @@ def menu():
     print("6. Search User by ID and Name")
     print("7. Add Course")
     print("8. View All Courses")
-    print("9. Search User by Course 5and Name")
+    print("9. Search User by Course and Name")
 
 
 def main():
