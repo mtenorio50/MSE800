@@ -1,6 +1,6 @@
 from termcolor import colored
 from database import create_table
-from data_manager import add_user, authenticate_login, view_users, view_customers, view_cars, add_customer, add_cars
+from data_manager import add_user, authenticate_login, view_users, view_customers, view_cars, add_customer, add_cars, search_customer, search_car
 import os
 import msvcrt  # For Windows key press detection
 
@@ -118,8 +118,7 @@ def customer_menu():
     print("1. View Customers")
     print("2. Add Customer")
     print("3. Search Customer")
-    print("4. Delete Customer")
-    print("5. Back")
+    print("4. Back")
     print("0. Exit")
 
 
@@ -130,7 +129,7 @@ def customer_menu_choice():
         if choice == '0':
             print(colored("Exiting the program...", 'green', 'on_red'))
             exit()
-        elif choice == '5':
+        elif choice == '4':
             admin_menu_choice()
         elif choice == '1':
             print(colored("View Staff", 'green', 'on_blue'))
@@ -150,8 +149,19 @@ def customer_menu_choice():
                 print(colored("Customer registration completed!", 'green', 'on_green'))
             press_any_key()
 
+        elif choice == '3':
+            print(colored("Search Customer ", 'green', 'on_blue'))
+            name = input("Enter name: ")
+            license_number = input("Enter license number: ")
+            customer = search_customer(name, license_number)
+            if customer:
+                print(customer)
+            else:
+                print(colored("Customer not found!", 'green', 'on_red'))
+            press_any_key()
+
         else:
-            print(colored("Invalid choice! Select from 0-5", 'green', 'on_red'))
+            print(colored("Invalid choice! Select from 0-4", 'green', 'on_red'))
             press_any_key()
 
 
@@ -160,9 +170,8 @@ def car_menu():
     print(colored("Car Menu", 'green', 'on_blue'))
     print("1. View Cars")
     print("2. Add Car")
-    print("3. Update Car")
-    print("4. Delete Car")
-    print("5. Back")
+    print("3. Search Car")
+    print("4. Back")
     print("0. Exit")
 
 
@@ -173,7 +182,7 @@ def car_menu_choice():
         if choice == '0':
             print(colored("Exiting the program...", 'green', 'on_red'))
             exit()
-        elif choice == '5':
+        elif choice == '4':
             admin_menu_choice()
         elif choice == '1':
             print(colored("View Staff", 'green', 'on_blue'))
@@ -195,8 +204,19 @@ def car_menu_choice():
                 print(colored("Car registration completed!", 'green', 'on_green'))
             press_any_key()
 
+        elif choice == '3':
+            print(colored("Search Car ", 'green', 'on_blue'))
+            car_model = input("Enter car model: ")
+            registration_number = input("Enter registration number: ")
+            car = search_car(car_model, registration_number)
+            if car:
+                print(car)
+            else:
+                print(colored("Car not found!", 'green', 'on_red'))
+            press_any_key()
+
         else:
-            print(colored("Invalid choice! Select from 0-5", 'green', 'on_red'))
+            print(colored("Invalid choice! Select from 0-4", 'green', 'on_red'))
             press_any_key()
 
 

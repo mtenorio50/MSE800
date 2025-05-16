@@ -89,3 +89,23 @@ def add_cars(car_model, car_brand, year, color, daily_rate, status, registration
     except sqlite3.IntegrityError:
         print("Registration number already exists.")
     conn.close()
+
+
+def search_customer(name, license_number):
+    conn = create_connection()
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM customers WHERE full_name = ? AND license_number = ?",
+                   (name.lower(), license_number.lower()))
+    customer = cursor.fetchone()
+    conn.close()
+    return customer
+
+
+def search_car(car_model, registration_number):
+    conn = create_connection()
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM cars WHERE car_model = ? AND registration_number = ?",
+                   (car_model.lower(), registration_number.lower()))
+    car = cursor.fetchone()
+    conn.close()
+    return car
