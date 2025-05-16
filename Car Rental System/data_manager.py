@@ -36,7 +36,8 @@ def authenticate_login(username, password):
         return user[1]  # Return the role of the user (admin or staff)
     else:
         return None
-    
+
+
 def view_users():
     conn = create_connection()
     cursor = conn.cursor()
@@ -44,6 +45,24 @@ def view_users():
     users = cursor.fetchall()
     conn.close()
     return users
+
+
+def view_cars():
+    conn = create_connection()
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM cars")
+    cars = cursor.fetchall()
+    conn.close()
+    return cars
+
+
+def view_customers():
+    conn = create_connection()
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM customers")
+    customers = cursor.fetchall()
+    conn.close()
+    return customers
 
 
 def add_customer(full_name, email, phone, address, license_number):
@@ -64,7 +83,7 @@ def add_cars(car_model, car_brand, year, color, daily_rate, status, registration
     cursor = conn.cursor()
     try:
         cursor.execute(
-            "INSERT INTO cars (car_model, car_brand, year, color, daily_rate, status, registration_number) VALUES (?, ?, ?, ?, ?)", (car_model, car_brand, year, color, daily_rate, status, registration_number))
+            "INSERT INTO cars (car_model, car_brand, year, color, daily_rate, status, registration_number) VALUES (?, ?, ?, ?, ?, ?, ?)", (car_model, car_brand, year, color, daily_rate, status, registration_number))
         conn.commit()
         print("Car added successfully.")
     except sqlite3.IntegrityError:
