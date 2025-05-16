@@ -14,7 +14,7 @@ def add_user(name, email):
         print(" Email must be unique.")
     conn.close()
 
-
+ 
 def add_course(course_name, unit):
     conn = create_connection()
     cursor = conn.cursor()

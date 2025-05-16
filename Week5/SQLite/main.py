@@ -13,7 +13,7 @@ def menu():
     print("7. Add Course")
     print("8. View All Courses")
     print("9. Search User by Course and Name")
-
+ 
 
 def main():
     create_table()
