@@ -36,6 +36,14 @@ def authenticate_login(username, password):
         return user[1]  # Return the role of the user (admin or staff)
     else:
         return None
+    
+def view_users():
+    conn = create_connection()
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM users")
+    users = cursor.fetchall()
+    conn.close()
+    return users
 
 
 def add_customer(full_name, email, phone, address, license_number):
