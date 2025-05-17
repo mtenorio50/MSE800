@@ -8,11 +8,11 @@ import msvcrt  # For Windows key press detection
 def press_any_key():
     print(colored("\nPress any key to continue...", 'yellow', 'on_blue'))
     msvcrt.getch()  # Wait for any key press
-    os.system('cls' if os.name == 'nt' else 'clear')
+    os.system('cls')
 
 
 def main():
-    os.system('cls' if os.name == 'nt' else 'clear')
+    os.system('cls')
     print(colored("Welcome to the Car Rental System", 'green', 'on_yellow'))
     print("1. Staff Login")
     print("2. Customer Login")
@@ -37,7 +37,7 @@ def main_menu():
 
 
 def staff_login():
-    os.system('cls' if os.name == 'nt' else 'clear')
+    os.system('cls')
     print(colored("Staff Login", 'green', 'on_blue'))
     username = input("Enter your username: ")
     password = input("Enter your password: ")
@@ -62,7 +62,7 @@ def staff_login():
 
 
 def admin_menu():
-    os.system('cls' if os.name == 'nt' else 'clear')
+    os.system('cls')
     print(colored("Admin Menu", 'green', 'on_blue'))
     print("1. Register Staff")
     print("2. View Staff")
@@ -113,7 +113,7 @@ def admin_menu_choice():
 
 
 def customer_menu():
-    os.system('cls' if os.name == 'nt' else 'clear')
+    os.system('cls')
     print(colored("Customer Menu", 'green', 'on_blue'))
     print("1. View Customers")
     print("2. Add Customer")
