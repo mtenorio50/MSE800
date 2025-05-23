@@ -95,7 +95,7 @@ def search_customer(name, license_number):
     conn = create_connection()
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM customers WHERE full_name = ? AND license_number = ?",
-                   (name.lower(), license_number.lower()))
+                   (name, license_number))
     customer = cursor.fetchone()
     conn.close()
     return customer
@@ -105,7 +105,17 @@ def search_car(car_model, registration_number):
     conn = create_connection()
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM cars WHERE car_model = ? AND registration_number = ?",
-                   (car_model.lower(), registration_number.lower()))
+                   (car_model, registration_number))
     car = cursor.fetchone()
     conn.close()
     return car
+
+
+def del_car(registration_number):
+    conn = create_connection()
+    cursor = conn.cursor()
+    cursor.execute("DELETE FROM cars WHERE registration_number = ?",
+                   (registration_number,))
+    conn.commit()
+    conn.close()
+    return True
