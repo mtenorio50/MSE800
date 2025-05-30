@@ -9,7 +9,8 @@ class Book:  # Book class to represent a book in the library
         author = input("Enter book author: ")
         # create a new book object with the provided title and author
         book = Book(title, author)
-        library.append(book)  # add the book to the library list
+        library.append(book)
+        # add the book to the library list
 
     def search_book(library):  # function to search for a book in the library
         title = input("Enter book title to search: ")
