@@ -21,7 +21,7 @@ class TicTacToe:
                     self.board[pos] = self.current_player
                     break
                 else:
-                    print("Invalid. Try again.")
+                    print("Invalid. Try again. 1-9 only!")
             except ValueError:
                 print("Use a number 1-9.")
 
