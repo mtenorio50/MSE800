@@ -12,4 +12,4 @@ How to run the test:
 
 ## Testing
 
-Automated unit tests were written using pytest to verify the calculator’s functions, including arithmetic, power, roots, and trigonometric operations. The tests cover normal usage, edge cases, and invalid input, ensuring the calculator is reliable and accurate.
+Automated unit tests were written using pytest to verify the calculator’s functions, including basic arithmetic function (add, subtract, multiply, divide), power, roots, and trigonometric operations(sin, cos, tan). The tests cover normal usage, edge cases, and invalid input, ensuring the calculator is reliable and accurate.
