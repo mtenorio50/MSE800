@@ -28,6 +28,14 @@ def test_power():
     assert calculator.power(2, 3) == 8
     assert calculator.power(5, 0) == 1
 
+def test_power_overflow():
+    with pytest.raises(OverflowError):
+        calculator.power(1e308, 2)
+
+def test_power_zero_negative():
+    with pytest.raises(ValueError):
+        calculator.power(0, -3)
+
 
 def test_root():
     assert calculator.root(9, 2) == 3
@@ -35,7 +43,14 @@ def test_root():
     with pytest.raises(ValueError):
         calculator.root(-16, 2)
 
+def test_root_even_negative():
+    with pytest.raises(ValueError):
+        calculator.root(-8, 2)
 
+def test_root_zeroth():
+    with pytest.raises(ValueError):
+        calculator.root(9, 0)
+        
 def test_sine():
     assert math.isclose(calculator.sine(0), 0)
     assert math.isclose(calculator.sine(math.pi/2), 1)
