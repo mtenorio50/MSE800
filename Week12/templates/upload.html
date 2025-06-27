@@ -1,0 +1,13 @@
+<!-- templates/upload.html -->
+<!doctype html>
+<title>Upload an image</title>
+<h1>Upload an Image</h1>
+<form method="post" enctype="multipart/form-data">
+  <input type="file" name="file" required>
+  <input type="submit" value="Upload">
+</form>
+
+{% if filename %}
+  <h2>Uploaded Image:</h2>
+  <img src="{{ url_for('uploaded_file', filename=filename) }}" style="max-width:400px;">
+{% endif %}
